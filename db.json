@@ -1,3 +1,9 @@
 {
-    "lists": []
+  "lists": [
+    {
+      "description": "Comb your hair",
+      "isDone": false,
+      "id": 1
+    }
+  ]
 }

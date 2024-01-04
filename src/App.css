@@ -49,9 +49,23 @@
     pointer-events: all;
   }
 }
+@keyframes error_shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .app {
   text-align: center;
-  min-width: 400px;
+  min-width: 500px;
   position: relative;
 }
 .logo_container {
@@ -77,6 +91,7 @@
 .app_title {
   margin: 10px 0px;
   animation: title_show 1.11s ease 1;
+  color: rgb(42, 103, 103);
 }
 .app_container {
   animation: content_show 1.39s ease 1;
@@ -149,4 +164,109 @@
 .retry_btn_border1:hover{
   outline: 5px solid transparent;
   border-color: red;
+}
+
+.input_form_div, .task_div {
+  display: flex;
+}
+.input_form_input {
+  flex-grow: 1;
+    padding: 10px;
+    margin: 10px;
+    font-weight: 500;
+    color: rgb(42, 103, 103);
+    border-radius: 5px;
+    border-color: rgb(42, 103, 103);
+}
+.add_task_btn {
+    background: white;
+    border-radius: 5px;
+    border: 2px solid rgb(42, 103, 103);
+    outline: 0px solid rgb(42, 103, 103);
+    text-align: center;
+    color: rgb(42, 103, 103);
+    font-size: large;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: outline 0.3s ease-in-out;
+}
+.add_task_btn:hover {
+  outline: 5px solid transparent;
+}
+
+.add_task_btn.disabled {
+  border-color: gray;
+  outline-color: transparent;
+  color: gray;
+  cursor: auto;
+}
+.add_task_btn.error_adding {
+  border-color: red;
+  outline-color: transparent;
+  color: red;
+  cursor: auto;
+  animation: error_shake 0.05s ease-in-out infinite;
+}
+.task_div {
+  margin: 10px;
+  border-radius: 30px;
+  border: 2px solid rgb(42, 103, 103);
+  border-top: none;
+  border-bottom: none;
+  transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+}
+.task_div_done {
+  border: none;
+  background-color: rgb(161, 161, 161);
+  margin-left: 20px;
+}
+.task_not_done_circle, .task_done_circle {
+  user-select: none;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 100%;
+  border: 2px solid rgb(42, 103, 103);
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bolder;
+  line-height: 45px;
+  transition: margin-left 0.3s ease-in-out;
+}
+.task_not_done_circle {
+  color: rgb(42, 103, 103);
+  background-color: white;
+}
+.task_done_circle {
+  background-color: rgb(42, 103, 103);
+  color: white;
+  margin-left: 0px;
+}
+.task_description {
+  flex: 1;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  color: rgb(42, 103, 103);
+  font-weight: bold;
+  padding: 15px 10px;
+  text-align: left;
+}
+
+.task_div_done .task_description {
+  color: rgb(76, 76, 76)
+}
+
+.edit_btn, .delete_btn {
+  cursor: pointer;
+  padding: 15px 10px;
+  font-weight: 900;
+  margin-left: 10px;
+  user-select: none;
+}
+.delete_btn {
+  color: red;
+  margin-right: 20px;
+  
 }
